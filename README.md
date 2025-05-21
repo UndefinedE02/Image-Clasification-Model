@@ -1,8 +1,9 @@
 # Image-Clasification-Model-TensorFlowLite
-image clasification adalah salah satu cabang computer vision yang dimana bertujuan untuk meng-klasifikasikan gambar sesuai dengan label yang ada pada gambar tersebut, di repositori ini saya membuat model klasifikasi untuk 3 hewan yaitu: 
+Proyek ini bertujuan untuk membangun dan melatih model Convolutional Neural Network (CNN) yang robust untuk mengklasifikasikan 3 hewan yaitu: 
 - 1.kucing
 - 2.anjing
 - 3.harimau
+Dengan memanfaatkan kekuatan deep learning, proyek ini berupaya menyediakan alat bantu untuk mengidentifikasi foto/gambar hewan yang samar/kurang jelas.
 
 pada repositori ini kita akan menggunakan tensorflowlite untuk melakukan inferensi pada model yang sudah dilatih
 silahkan unduh sendiri dataset yang diperlukan pada link yang sudah di sediakan atau dapat gunakan drive untuk melakukan modeling secara mandiri
@@ -37,7 +38,14 @@ silahkan unduh sendiri dataset yang diperlukan pada link yang sudah di sediakan 
    ```sh
    pip install -r requirements.txt
    ```
-
+4. **Dataset:**
+   ```Dataset yang digunakan dalam proyek ini adalah gambar hewan yang diunduh dari Kaggle. Dataset ini berisi gambar-gambar yang dikategorikan sebagai Cats,                      Pneumonia Dogs, dan Tigers.
+   
+   Sumber Dataset: [https://www.kaggle.com/datasets/nicopalv/dataset-klasifikasi-gambar-hewan]
+   Struktur Awal Dataset:
+   Training Set: 12.000 gambar 3 folder
+   Test Set: 3.000 gambar 3 folder
+   ```
 ##  Melatih Model
 Jalankan perintah berikut untuk melatih model:
 ```sh
@@ -72,6 +80,14 @@ Gunakan model TF-Lite untuk melakukan prediksi:
 python scripts/inference_tflite.py --image path/to/image.jpg
 ```
 
+## Hasil
+Model dilatih selama beberapa epoch dan dievaluasi berdasarkan akurasi dan loss pada data latih, validasi, dan uji.
+
+Akurasi Pelatihan (Training Accuracy): 89.33%
+Loss Pelatihan (Training Loss): 0.2531
+Akurasi Uji (Test Accuracy): 89.55%
+Loss Uji (Test Loss): 0.2393
+
 ##  Teknologi yang Digunakan
 - **Python 3.10+**
 - **TensorFlow & Keras** (Model training & deployment)
@@ -79,6 +95,18 @@ python scripts/inference_tflite.py --image path/to/image.jpg
 - **TensorFlow.js** (Inference di web)
 - **OpenCV & PIL** (Preprocessing gambar)
 - **Matplotlib** (Visualisasi hasil)
+
+### Arsitektur Model
+Model ini dibangun menggunakan Convolutional Neural Network (CNN) dengan pendekatan sekuensial. Arsitektur ini dirancang untuk secara otomatis mempelajari fitur-fitur penting untuk klasifikasi yang akurat.
+
+Berikut adalah komponen utama model:
+- Lapisan Konvolusi (Conv2D): Bertugas untuk mengekstrak fitur-fitur spasial dari gambar, seperti tepi, tekstur, dan pola yang lebih kompleks. Digabungkan dengan fungsi
+- aktivasi ReLU untuk menangani non-linieritas.
+- Lapisan Pooling (MaxPooling2D): Digunakan setelah lapisan konvolusi untuk mengurangi dimensi spasial (downsampling) dari peta fitur, mengurangi kompleksitas komputasi, dan membuat model lebih tangguh terhadap variasi posisi objek.
+- Lapisan Perataan (Flatten): Mengubah output multidimensional dari lapisan konvolusi dan pooling menjadi satu vektor satu dimensi, mempersiapkannya untuk lapisan fully connected.
+- Lapisan Dense (Dense): Lapisan fully connected yang menerima fitur yang telah diratakan. Lapisan terakhir menggunakan fungsi aktivasi Softmax untuk menghasilkan probabilitas klasifikasi untuk setiap kelas (KUcing, Anjing, dan Harimau).
+- Model dikompilasi menggunakan optimizer Adam yang efisien dan fungsi loss categorical_crossentropy, yang merupakan pilihan umum dan efektif untuk tugas klasifikasi multi-kelas.
+
 
 ##  Lisensi
 Proyek ini menggunakan lisensi **MIT**.
