@@ -15,9 +15,10 @@ silahkan unduh sendiri dataset yang diperlukan pada link yang sudah di sediakan 
 │   ├── train/              # Data training
 │   ├── test/               # Data testing
 │
-├── Src/                     # Folder untuk menyimpan model dan modeling
-|  ├── model.tflite            # Model dalam format TensorFlow Lite
-|  ├── Modeling.ipynb  # Notebook utama untuk analisis & training
+├── Src/                    # Folder untuk menyimpan model dan modeling
+|  ├── best_model.h5        # Model dengan kualitas terbaik selama pelatihan berlangsung              
+|  ├── model.tflite         # Model dalam format TensorFlow Lite
+|  ├── Modeling.ipynb       # Notebook utama untuk analisis & training
 │
 ├── requirements.txt        # Daftar dependensi
 ├── README.md               # Dokumentasi proyek ini
