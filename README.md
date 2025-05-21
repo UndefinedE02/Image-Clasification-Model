@@ -1,8 +1,9 @@
 # Image-Clasification-Model-TensorFlowLite
 Proyek ini bertujuan untuk membangun dan melatih model Convolutional Neural Network (CNN) yang robust untuk mengklasifikasikan 3 hewan yaitu: 
-- 1.kucing
-- 2.anjing
-- 3.harimau
+1. kucing
+2. anjing
+3. harimau
+   
 Dengan memanfaatkan kekuatan deep learning, proyek ini berupaya menyediakan alat bantu untuk mengidentifikasi foto/gambar hewan yang samar/kurang jelas.
 
 pada repositori ini kita akan menggunakan tensorflowlite untuk melakukan inferensi pada model yang sudah dilatih
