@@ -50,7 +50,7 @@ silahkan unduh sendiri dataset yang diperlukan pada link yang sudah di sediakan 
 ##  Melatih Model
 Jalankan perintah berikut untuk melatih model:
 ```sh
-python Submission_Akhir.ipynb
+python Modeling.ipynb
 ```
 Setelah selesai, model akan disimpan sebagai **best_model.h5**.
 
